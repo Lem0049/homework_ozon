@@ -1,19 +1,18 @@
-import os, pickle, io
+import os
 
 
 if not os.path.isfile('dairy.txt'):
-    data = [0,1]
-    data[0] = input("today")
-    data[1] = input('How are you')
-    file = open("dairy.txt", "wb")
-    pickle.dump(data, file)
+    file = open("dairy.txt", "w+")
+    file.write(input('what time it is :') + '\n')
+    file.write(input('how are you :') + '\n')
     file.close()
 else:
-    file = open("dairy.txt", "rb")
-    data[0] = input("today")
-    data[1] = input('How are you')
-    file = open("dairy.txt", "wb")
-    pickle.dump(data, file)
+    file = open("dairy.txt", "a")
+    file.write(input('what time it is :') + '\n')
+    file.write(input('how are you :') + '\n')
     file.close()
+with open('dairy.txt', 'r') as file:
+    print(file.read())
 
-print('spisok del', data[0], ",", data[1])
+
+
