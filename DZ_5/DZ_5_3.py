@@ -1,11 +1,9 @@
-import io
-
-word = u'кошка'
-i = 0
-with io.open('lafcraft.txt', encoding='utf-8') as file:
+word = u'кошка '
+c = []
+with open('lafcraft.txt', encoding='utf-8') as file:
     for line in file:
+        c.append(line.count(word))
         if word in line:
-            i = i + 1
             print(line)
 
-print(i)
+print(sum(c))
