@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-import os
-
+import os, pickle
 
 for file in os.listdir('.'):
     if file.endswith(".dat"):
-        print(open(file).read())
+        infile = open(file, 'rb')
+        print(pickle.load(infile))
+        infile.close()
