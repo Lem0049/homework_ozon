@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-import os, pickle
+import os
+import pickle
 
 for file in os.listdir('.'):
     if file.endswith(".dat"):
