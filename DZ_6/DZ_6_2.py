@@ -12,31 +12,33 @@ shows = {
     'Карточный домик': {'Genre': 'драма', 'Rating': 0.82},
     'Рик и Морти': {'Жанр': 'фантастика', 'Рейтинг': 1}
 }
+'''This function create .dat file with list of film same genre.'''
 
 
-def genre_film(g_name):
-    f_list = {}
+def genre_film(g_name): # start function
+    f_list = {}     # empty dict
 
-    for i in shows.keys():
+    for i in shows.keys():      # start cycle
         try:
-            if shows[i]['Жанр'] == g_name:
+            if shows[i]['Жанр'] == g_name:  # search value for key"Жанр" in dictionary
                 f_list[i] = float(shows[i]['Рейтинг'])
         except KeyError as k_e:
             print(f'KeyError{k_e}')
         except TypeError as t_e:
             print(f'TypeError{t_e}')
         try:
-            if shows[i]['Genre'] == g_name:
+            if shows[i]['Genre'] == g_name:     # search value for key"Genre" in dictionary
                 f_list[i] = float(shows[i]['Rating'])
         except KeyError as k_e:
             print(f'KeyError{k_e}')
         except TypeError as t_e:
             print(f'TypeError{t_e}')
 
-    average_final = sum(f_list.values()) / len(f_list.values())
-    with open(f'{g_name.upper()}.dat', "wb") as f:
+    average_final = sum(f_list.values()) / len(f_list.values())     # calculate average rating for film same genre
+    with open(f'{g_name.upper()}.dat', "wb") as f:  # create file
         pickle.dump(f_list, f)
-    return f'в жанре {g_name} всего {len(f_list)} сериалов, средний рейтинг которых равен{average_final}'
+    return f'в жанре {g_name} всего {len(f_list)} сериалов, средний рейтинг которых равен{average_final}' # return
+    # result
 
 
 list_genre = []
