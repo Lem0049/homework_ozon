@@ -27,9 +27,9 @@ def bubble_sort(arr):
 test_list = [1000, 2000, 5000, 10000]
 for i in test_list:
     random_list = [random.randint(0, i) for i in range(i)]
-    c = bubble_sort(random_list)
-    d = selection_sort(random_list)
-    if c > d:
+    c = selection_sort(random_list)
+    d = bubble_sort(random_list)
+    if c < d:
         print(f'{c} > {d} Selection faster')
     else:
-        print(f'{c} > {d} Bubble faster')
+        print(f'{c} < {d} Bubble faster')
